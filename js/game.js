@@ -23,8 +23,8 @@ Game.prototype.makeBoard = function(stringBoard){
 
 Game.prototype.logBoard = function(){
   this.board.forEach(function(ele){
-    console.log(ele.join(""));
-  }
+    console.log(ele.join(" "));
+  });
 };
 
 Game.prototype.moveLeft = function(){
@@ -48,6 +48,40 @@ Game.prototype.moveLeft = function(){
     }
     self.board[i] = zeroless;
   }
+};
+
+Game.prototype.moveRight = function(){
+  var self = this;
+  var board = this.board;
+  for (var i = 0; i < board.length; i++) {
+    var row = board[i];
+    var zeroless = row.filter(function(i) { return i !== 0} ); // creates row without 0s
+    for (var j = zeroless.length - 1; j >= 0; j--) {
+     if (zeroless[j] === zeroless[(j-1)]) {
+        zeroless[j] = zeroless[j] * 2;
+        zeroless.splice(j-1, 1);
+      } else {
+        zeroless[j] = zeroless[j]
+      } // (no change)
+    }
+    var counter = row.length - zeroless.length;
+    for (var k = 0; k < counter; k++) {
+      zeroless.unshift(0);
+    }
+    self.board[i] = zeroless;
+  }
+};
+
+Game.prototype.moveUp = function(){
+  this.board = _.zip.apply(null, this.board);
+  this.moveLeft();
+  this.board = _.zip.apply(null, this.board);
+};
+
+Game.prototype.moveDown = function(){
+  this.board = _.zip.apply(null, this.board);
+  this.moveRight();
+  this.board = _.zip.apply(null, this.board);
 };
 
 test = new Game("0224240200448008");
