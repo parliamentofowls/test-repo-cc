@@ -21,7 +21,6 @@ Game.prototype.makeBoard = function(stringBoard){
   return board;
 };
 
-
 Game.prototype.toString = function(){
   // var boardString = this.board.toString().replace(/,/g, "");
   var boardString = this.board;
@@ -30,3 +29,40 @@ Game.prototype.toString = function(){
   };
   console.log(boardString.join("").replace(/,/g, ""));
 };
+
+Game.prototype.moveLeft = function(){
+  var self = this;
+  var board = this.board;
+  for (var i = 0; i < board.length; i++) {
+    var row = board[i];
+    var zeroless = row.filter(function(i) { return i !== 0}) // creates row without 0s
+
+    for (var j = 0; j < zeroless.length; j++) {
+      if (zeroless[j] === zeroless[j+1]) {
+        zeroless[j] = zeroless[j] * 2;
+        zeroless.splice(j+1, 1);
+      } else {
+        zeroless[j] = zeroless[j]
+      } // (no change)
+    }
+    var counter = row.length - zeroless.length;
+    for (var k = 0; k < counter; k++) {
+      zeroless.push(0);
+    }
+    self.board[i] = zeroless;
+  }
+};
+
+Game.prototype.move = function('right'){
+
+}
+
+Game.prototype.move = function('up'){
+
+}
+
+Game.prototype.move = function('down'){
+
+}
+
+
