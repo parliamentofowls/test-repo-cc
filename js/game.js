@@ -1,6 +1,7 @@
-function Game(startBoard) = {
+var Game = function(startBoard) {
   this.completed = false;
-  this.board = makeBoard(startBoard);
+  this.startBoard = startBoard;
+  this.board = this.makeBoard(startBoard);
 };
 
 Game.prototype.makeBoard = function(stringBoard){
@@ -21,6 +22,11 @@ Game.prototype.makeBoard = function(stringBoard){
 };
 
 
-// Game.prototype.toString = function(){
-
-// };
+Game.prototype.toString = function(){
+  // var boardString = this.board.toString().replace(/,/g, "");
+  var boardString = this.board;
+  for (var i = 0; i < boardString.length; i++) {
+    boardString[i].push("\n");
+  };
+  console.log(boardString.join("").replace(/,/g, ""));
+};
