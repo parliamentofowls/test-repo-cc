@@ -50,16 +50,8 @@ Game.prototype.moveLeft = function(){
   }
 };
 
-Game.prototype.move = function('right'){
+test = new Game("0224240200448008");
 
-}
 
-Game.prototype.move = function('up'){
-
-}
-
-Game.prototype.move = function('down'){
-
-}
 
 
