@@ -22,13 +22,9 @@ Game.prototype.makeBoard = function(stringBoard){
 };
 
 Game.prototype.logBoard = function(){
-  // var boardString = this.board.toString().replace(/,/g, "");
-  var result = '';
   this.board.forEach(function(ele){
-    result += ele.join("");
-    result += "\n"
-  });
-  console.log(result);
+    console.log(ele.join(""));
+  }
 };
 
 Game.prototype.moveLeft = function(){
