@@ -21,13 +21,14 @@ Game.prototype.makeBoard = function(stringBoard){
   return board;
 };
 
-Game.prototype.toString = function(){
+Game.prototype.logBoard = function(){
   // var boardString = this.board.toString().replace(/,/g, "");
-  var boardString = this.board;
-  for (var i = 0; i < boardString.length; i++) {
-    boardString[i].push("\n");
-  };
-  console.log(boardString.join("").replace(/,/g, ""));
+  var result = '';
+  this.board.forEach(function(ele){
+    result += ele.join("");
+    result += "\n"
+  });
+  console.log(result);
 };
 
 Game.prototype.moveLeft = function(){
