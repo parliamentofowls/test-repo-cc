@@ -86,6 +86,65 @@ Game.prototype.moveDown = function(){
 
 test = new Game("0224240200448008");
 
+// Game.prototype.move = function(direction){
+//   var self = this;
+//   var board = this.board;
+//   switch(direction) {
+//     case 'left':
+//       for (var i = 0; i < board.length; i++) {
+//         var row = board[i];
+//         var zeroless = row.filter(function(i) { return i !== 0}) // creates row without 0s
+
+//         for (var j = 0; j < zeroless.length; j++) {
+//           if (zeroless[j] === zeroless[j+1]) {
+//             zeroless[j] = zeroless[j] * 2;
+//             zeroless.splice(j+1, 1);
+//           } else {
+//             zeroless[j] = zeroless[j]
+//           } // (no change)
+//         }
+//         var counter = row.length - zeroless.length;
+//         for (var k = 0; k < counter; k++) {
+//           zeroless.push(0);
+//         }
+//         self.board[i] = zeroless;
+//       };
+//         break;
+//     case 'right':
+
+//         break;
+//     case 'up':
+
+//     case 'down':
+//         break;
+//     //default needed?
+// }
+
+
+//   for (var i = 0; i < board.length; i++) {
+//     var row = board[i];
+//     var zeroless = row.filter(function(i) { return i !== 0}) // creates row without 0s
+
+//     for (var j = 0; j < zeroless.length; j++) {
+//       if (zeroless[j] === zeroless[j+1]) {
+//         zeroless[j] = zeroless[j] * 2;
+//         zeroless.splice(j+1, 1);
+//       } else {
+//         zeroless[j] = zeroless[j]
+//       } // (no change)
+//     }
+//     var counter = row.length - zeroless.length;
+//     for (var k = 0; k < counter; k++) {
+//       zeroless.push(0);
+//     }
+//     self.board[i] = zeroless;
+//   }
+};
+
+
+
+
+
 
 
 
