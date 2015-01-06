@@ -20,6 +20,7 @@ body {
   background-position:center;
 }
 
+
 .square {
   height: 98px;
   width: 98px;
@@ -29,8 +30,31 @@ body {
   border-radius: 5px;
 }
 
+.S2 {
+  background-color:rgba(234, 157, 75, 0.75);
+}
+
+.S4 {
+  background-color: rgba(29, 64, 109, 0.75);
+}
+
+.S8 {
+  background-color:rgba(234, 157, 75, 0.4);
+}
+
+.S16 {
+  background-color:rgba(234, 157, 75, 0.4);
+}
+
+.S32 {
+  background-color:rgba(234, 157, 75, 0.4);
+}
+
 #one {
   margin-top:3px;
 }
+
+
+
 
 

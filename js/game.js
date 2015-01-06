@@ -86,11 +86,20 @@ Game.prototype.moveDown = function(){
 };
 
 Game.prototype.updateBoard = function() {
+  console.log('updating board');
+  console.log(this.cells);
   var merged = [];
   merged = merged.concat.apply(merged, this.board);
   for (i in this.cells){
-    $(this.cells[i]).html(merged[i]);
-  };
+    if (merged[i] !== 0) {
+      $(this.cells[i]).html(merged[i]);
+      var num = (merged[i]).toString();
+      $(this.cells[i]).removeAttr('class').addClass('square').addClass("S"+num);
+    } else {
+      $(this.cells[i]).html('&nbsp;')
+      $(this.cells[i]).removeAttr('class').addClass('square').addClass("0");
+    }
+  }
 };
 
 test = new Game("0224240200448008");

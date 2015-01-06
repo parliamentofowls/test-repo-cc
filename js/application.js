@@ -7,3 +7,4 @@ $(document).ready(function() {
   Mousetrap.bind('down', function(){newGame.moveDown(); newGame.updateBoard();});
 });
 
+
