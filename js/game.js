@@ -2,6 +2,7 @@ var Game = function(startBoard) {
   this.completed = false;
   this.startBoard = startBoard;
   this.board = this.makeBoard(startBoard);
+  this.cells = $('.square').toArray();
 };
 
 Game.prototype.makeBoard = function(stringBoard){
@@ -84,6 +85,14 @@ Game.prototype.moveDown = function(){
   this.board = _.zip.apply(null, this.board);
 };
 
+Game.prototype.updateBoard = function() {
+  var merged = [];
+  merged = merged.concat.apply(merged, this.board);
+  for (i in this.cells){
+    $(this.cells[i]).html(merged[i]);
+  };
+};
+
 test = new Game("0224240200448008");
 
 // Game.prototype.move = function(direction){
@@ -139,7 +148,7 @@ test = new Game("0224240200448008");
 //     }
 //     self.board[i] = zeroless;
 //   }
-};
+
 
 
 
