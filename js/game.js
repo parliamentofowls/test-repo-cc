@@ -28,17 +28,6 @@ Game.prototype.makeBoard = function(stringBoard){
   return board;
 };
 
-Game.prototype.toBoardString = function(nestedArray){
-  var str = "";
-  for (var i = 0; i < nestedArray.length; i++) {
-    for (var j = 0; j < nestedArray[i].length; j++) {
-      debugger
-      str += nestedArray[i][j];
-    };
-  };
-  return str;
-}
-
 Game.prototype.logBoard = function(){
   this.board.forEach(function(ele){
     console.log(ele.join(" "));
@@ -156,16 +145,6 @@ Game.prototype.updateBoard = function() {
     }
   }
 };
-
-
-
-
-
-// test = new Game("0224240200448008");
-
-
-
-
 
 
 
