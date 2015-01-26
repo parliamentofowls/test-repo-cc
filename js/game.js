@@ -113,12 +113,11 @@ Game.prototype.updateBoard = function() {
   }
 };
 
-Game.prototype.
 
 
 Game.prototype.spawn = function() {
   if (this.respawnIsOn) {
-    //spawn code
+    this.board.toString().replace("")
   }
 }
 
