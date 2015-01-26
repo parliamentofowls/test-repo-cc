@@ -43,7 +43,7 @@ Game.prototype.moveLeft = function(){
         zeroless[j] = zeroless[j]
       } // (no change)
     }
-    var counter = row.length - zeroless.length;
+    var counter = row.length - zeroless.length; //add 0s until row appropriate length
     for (var k = 0; k < counter; k++) {
       zeroless.push(0);
     }
