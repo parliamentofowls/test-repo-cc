@@ -7,7 +7,13 @@ var Game = function(startBoard) {
   this.respawnIsOn = true;
 };
 
+
+// Game.prototype.loop = function() {
+
+// };
+
 Game.prototype.makeBoard = function(stringBoard){
+  debugger
   if (stringBoard.length !== 16){
     alert("Starting boards must be 16 digits long, you silly hobbit!");
     return false
@@ -113,16 +119,26 @@ Game.prototype.updateBoard = function() {
   }
 };
 
-
-
-Game.prototype.spawn = function() {
-  if (this.respawnIsOn) {
-    this.board.toString().replace("")
+Game.prototype.toBoardString = function(nestedArray){
+  str = ""
+  for (var i = 0; i < nestedArray.length; i++) {
+    for (var j = 0; j < i.length; j++) {
+      str += i[j]
+    }
   }
+  return str
 }
 
 
+Game.prototype.spawn = function() {
+  var self = this;
 
+  if (this.respawnIsOn) {
+    newCell = Math.floor(Math.random(9)+1) > 2 ? "2" : "4"
+    temp = self.toStringBoard(self.board).replace("0", newCell);
+    self.board = self.makeBoard(temp);
+  }
+}
 
 test = new Game("0224240200448008");
 
