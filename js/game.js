@@ -3,7 +3,6 @@ var Game = function(startBoard) {
   this.startBoard = startBoard;
   this.board = this.makeBoard(startBoard);
   this.cells = $('.square').toArray();
-  this.boardString;
   this.respawnIsOn = true;
 };
 
@@ -13,7 +12,6 @@ var Game = function(startBoard) {
 // };
 
 Game.prototype.makeBoard = function(stringBoard){
-  debugger
   if (stringBoard.length !== 16){
     alert("Starting boards must be 16 digits long, you silly hobbit!");
     return false
@@ -29,6 +27,16 @@ Game.prototype.makeBoard = function(stringBoard){
   }
   return board;
 };
+
+Game.prototype.toBoardString = function(nestedArray){
+  str = ""
+  for (var i = 0; i < nestedArray.length; i++) {
+    for (var j = 0; j < i.length; j++) {
+      str += i[j]
+    }
+  }
+  return str;
+}
 
 Game.prototype.logBoard = function(){
   this.board.forEach(function(ele){
@@ -102,45 +110,39 @@ Game.prototype.moveDown = function(){
   old_board === this.board.toString() ? this.respawnIsOn = false : this.respawnIsOn = true;
 };
 
-Game.prototype.updateBoard = function() {
-  console.log('updating board');
-  console.log(this.cells);
-  var merged = [];
-  merged = merged.concat.apply(merged, this.board);
-  for (i in this.cells){
-    if (merged[i] !== 0) {
-      $(this.cells[i]).html(merged[i]);
-      var num = (merged[i]).toString();
-      $(this.cells[i]).removeAttr('class').addClass('square').addClass("S"+num);
-    } else {
-      $(this.cells[i]).html('&nbsp;')
-      $(this.cells[i]).removeAttr('class').addClass('square').addClass("0");
-    }
-  }
-};
-
-Game.prototype.toBoardString = function(nestedArray){
-  str = ""
-  for (var i = 0; i < nestedArray.length; i++) {
-    for (var j = 0; j < i.length; j++) {
-      str += i[j]
-    }
-  }
-  return str
-}
-
-
 Game.prototype.spawn = function() {
   var self = this;
 
   if (this.respawnIsOn) {
-    newCell = Math.floor(Math.random(9)+1) > 2 ? "2" : "4"
-    temp = self.toStringBoard(self.board).replace("0", newCell);
+    var newCell = Math.floor(Math.random()*9+1) > 2 ? "2" : "4";
+    var temp = self.toBoardString(self.board).replace("0", newCell);
     self.board = self.makeBoard(temp);
   }
-}
+};
 
-test = new Game("0224240200448008");
+Game.prototype.updateBoard = function() {
+  var self = this;
+  console.log('updating board');
+  console.log(this.cells);
+  var merged = [];
+  merged = merged.concat.apply(merged, self.board);
+  for (i in self.cells){
+    if (merged[i] !== 0) {
+      $(self.cells[i]).html(merged[i]);
+      var num = (merged[i]).toString();
+      $(self.cells[i]).removeAttr('class').addClass('square').addClass("S"+num);
+    } else {
+      $(self.cells[i]).html('&nbsp;')
+      $(self.cells[i]).removeAttr('class').addClass('square').addClass("0");
+    }
+  }
+};
+
+
+
+
+
+// test = new Game("0224240200448008");
 
 
 
