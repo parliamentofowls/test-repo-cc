@@ -29,12 +29,13 @@ Game.prototype.makeBoard = function(stringBoard){
 };
 
 Game.prototype.toBoardString = function(nestedArray){
-  str = ""
+  var str = "";
   for (var i = 0; i < nestedArray.length; i++) {
-    for (var j = 0; j < i.length; j++) {
-      str += i[j]
-    }
-  }
+    for (var j = 0; j < nestedArray[i].length; j++) {
+      debugger
+      str += nestedArray[i][j];
+    };
+  };
   return str;
 }
 
@@ -47,7 +48,7 @@ Game.prototype.logBoard = function(){
 Game.prototype.moveLeft = function(){
   var self = this;
   var board = this.board;
-  var old_board = this.board.toString();
+  var old_board = this.board.toString(); //string
 
   for (var i = 0; i < board.length; i++) {
     var row = board[i];
@@ -65,7 +66,7 @@ Game.prototype.moveLeft = function(){
     for (var k = 0; k < counter; k++) {
       zeroless.push(0);
     }
-    self.board[i] = zeroless;
+    self.board[i] = zeroless; //replace row
   }
   old_board === self.board.toString() ? self.respawnIsOn = false : self.respawnIsOn = true;
 };
@@ -73,7 +74,7 @@ Game.prototype.moveLeft = function(){
 Game.prototype.moveRight = function(){
   var self = this;
   var board = this.board;
-  var old_board = this.board.toString();
+  var old_board = board.toString();
   for (var i = 0; i < board.length; i++) {
     var row = board[i];
     var zeroless = row.filter(function(i) { return i !== 0} ); // creates row without 0s
@@ -95,28 +96,45 @@ Game.prototype.moveRight = function(){
 };
 
 Game.prototype.moveUp = function(){
-  var old_board = this.board.toString();
-  this.board = _.zip.apply(null, this.board);
-  this.moveLeft();
-  this.board = _.zip.apply(null, this.board);
-  old_board === this.board.toString() ? this.respawnIsOn = false : this.respawnIsOn = true;
+  var self = this;
+  var board = this.board;
+  var old_board = board.toString();
+
+  // var old_board = this.toBoardString(self.board)
+  self.board = _.zip.apply(null, self.board);
+  self.moveLeft();
+  self.board = _.zip.apply(null, self.board);
+  old_board === self.board.toString() ? self.respawnIsOn = false : self.respawnIsOn = true;
 };
 
 Game.prototype.moveDown = function(){
-  var old_board = this.board.toString();
-  this.board = _.zip.apply(null, this.board);
-  this.moveRight();
-  this.board = _.zip.apply(null, this.board);
-  old_board === this.board.toString() ? this.respawnIsOn = false : this.respawnIsOn = true;
+
+  var self = this;
+  var board= this.board;
+  var old_board = board.toString();
+  self.board = _.zip.apply(null, self.board);
+  self.moveRight();
+  self.board = _.zip.apply(null, self.board);
+  old_board === self.board.toString() ? self.respawnIsOn = false : self.respawnIsOn = true;
 };
 
 Game.prototype.spawn = function() {
   var self = this;
 
   if (this.respawnIsOn) {
+    var board = self.board;
     var newCell = Math.floor(Math.random()*9+1) > 2 ? "2" : "4";
-    var temp = self.toBoardString(self.board).replace("0", newCell);
-    self.board = self.makeBoard(temp);
+    // var counter = 0;
+
+    for (var i =0; i < board.length; i++) {
+      for (var j=0; j < board[i].length; j++) {
+        if (counter < 1 && board[i][j] === "0") {
+            self.board[i][j] == newCell;
+            // counter++;
+            return;
+        }
+      }
+    }
   }
 };
 
