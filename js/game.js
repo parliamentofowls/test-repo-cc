@@ -65,10 +65,15 @@ Game.prototype.moveLeft = function(){
     var counter = row.length - zeroless.length; //add 0s until row appropriate length
     for (var k = 0; k < counter; k++) {
       zeroless.push(0);
+      }
+      self.board[i] = zeroless; //replace row
     }
-    self.board[i] = zeroless; //replace row
-  }
-  old_board === self.board.toString() ? self.respawnIsOn = false : self.respawnIsOn = true;
+
+    if (old_board === self.board.toString()) {
+      self.respawnIsOn = false;
+    } else {
+      self.respawnIsOn = true;
+    }
 };
 
 Game.prototype.moveRight = function(){
@@ -120,17 +125,13 @@ Game.prototype.moveDown = function(){
 
 Game.prototype.spawn = function() {
   var self = this;
-
   if (this.respawnIsOn) {
     var board = self.board;
-    var newCell = Math.floor(Math.random()*9+1) > 2 ? "2" : "4";
-    // var counter = 0;
-
+    var newCell = (Math.floor(Math.random()*9+1) > 2) ? 2 : 4;
     for (var i =0; i < board.length; i++) {
       for (var j=0; j < board[i].length; j++) {
-        if (counter < 1 && board[i][j] === "0") {
-            self.board[i][j] == newCell;
-            // counter++;
+        if (board[i][j] === 0) {
+            self.board[i][j] = newCell;
             return;
         }
       }
