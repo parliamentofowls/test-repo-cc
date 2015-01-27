@@ -1,10 +1,14 @@
 var Game = function() {
   this.completed = false;
-  this.startBoard = _.shuffle(["0", "0","0","0","0","0", "0", "0", "0","0","0","2","0","2","0", "0"]).join("");
-  this.board = this.makeBoard(this.startBoard);
+  this.board = this.makeBoard(this.generateStartBoard());
   this.cells = $('.square').toArray();
   this.respawnIsOn = true;
 };
+
+Game.prototype.generateStartBoard = function() {
+return _.shuffle(["0", "0","0","0","0","0", "0", "0", "0","0","0","2","0","2","0", "0"]).join("");
+}
+
 
 Game.prototype.loop = function() {
 
