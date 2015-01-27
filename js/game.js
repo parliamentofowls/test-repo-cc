@@ -120,13 +120,20 @@ Game.prototype.spawn = function() {
   if (this.respawnIsOn) {
     var board = self.board;
     var newCell = (Math.floor(Math.random()*9+1) > 2) ? 2 : 4;
+    var zeroIndices = [];
     for (var i =0; i < board.length; i++) {
       for (var j=0; j < board[i].length; j++) {
         if (board[i][j] === 0) {
-            self.board[i][j] = newCell;
-            return;
+            zeroIndices.push([i,j]);
+            console.log("zeroIndices =" + zeroIndices);
+            // self.board[i][j] = newCell;
+            // return;
         }
       }
+    }
+    if (zeroIndices.length >= 1) {
+      var pos = zeroIndices[Math.floor(Math.random()*zeroIndices.length)] // sampl
+      self.board[pos[0]][pos[1]] = newCell;
     }
   }
 };

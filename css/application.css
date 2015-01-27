@@ -46,23 +46,29 @@ body {
 }
 
 .S16 {
-  background-color:rgba(234, 157, 75, 0.4);
+  background-color: #FF3300;
 }
 
 .S32 {
-  background-color:rgba(234, 157, 75, 0.4);
+  background-color:rgba(240, 100, 75, 0.5);
 }
 
 .S64 {
-  background-color:rgba(234, 157, 75, 0.4);
+  background-color: rgba(255, 87, 0, 0.8);
 }
 
 .S128 {
-  background-color:rgba(234, 157, 75, 0.4);
+  background-color: rgba(255, 202, 0, 0.8);
 }
 
 .S256 {
-  background-color:rgba(234, 157, 75, 0.4);
+  background-color:#FF9933;
+}
+
+/*rgba(255, 87, 255, 0.8);*/
+
+.S512 {
+  background-color: rgba(28, 239, 142, 0.8);
 }
 
 #one {
