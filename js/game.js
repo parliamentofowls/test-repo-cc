@@ -1,5 +1,5 @@
 var Game = function() {
-  this.completed = false;
+  this.gameOver = false;
   this.board = this.makeBoard(this.generateStartBoard());
   this.cells = $('.square').toArray();
   this.respawnIsOn = true;
@@ -10,9 +10,28 @@ return _.shuffle(["0", "0","0","0","0","0", "0", "0", "0","0","0","2","0","2","0
 }
 
 
-Game.prototype.loop = function() {
-
-};
+// Game.prototype.loop = function(direction) {
+//   var self = this;
+//   if (!this.gameOver) {
+//     switch(direction) {
+//       case 'left':
+//         self.moveLeft()
+//         break;
+//       case 'right':
+//         self.moveRight();
+//         break;
+//       case 'up':
+//         self.moveUp();
+//         break;
+//       case 'down':
+//         self.moveDown();
+//         break;
+//       }
+//     self.spawn();
+//     self.updateBoard();
+//     self.checkGameOver();
+//   }
+// };
 
 Game.prototype.makeBoard = function(stringBoard){
   if (stringBoard.length !== 16){
@@ -126,8 +145,6 @@ Game.prototype.spawn = function() {
         if (board[i][j] === 0) {
             zeroIndices.push([i,j]);
             console.log("zeroIndices =" + zeroIndices);
-            // self.board[i][j] = newCell;
-            // return;
         }
       }
     }
@@ -155,6 +172,83 @@ Game.prototype.updateBoard = function() {
     }
   }
 };
+
+// Game.prototype.moveMattered = function(moveDirection) {
+//   var self = this;
+//   var old_board = self.board;
+//   self.moveDirection();
+//   if (self.board.toString() === old_board.toString()){
+//     self.board = old_board;
+//     return false;
+//   } else {
+//     self.board = old_board;
+//     return true;
+//   }
+// }
+
+
+
+Game.prototype.checkGameOver = function() {
+  var self = this;
+  if (self.cantMoveLeft() && self.cantMoveRight() && self.cantMoveDown() && self.cantMoveUp()) {
+    self.gameOver = true;
+    alert("Sorry, GAMEOVER. PLEASE PLAY AGAIN!")
+  }
+}
+
+Game.prototype.cantMoveLeft = function() {
+  var self = this;
+  var old_board = self.board;
+  self.moveLeft();
+  if (self.board.toString() === old_board.toString()){
+    self.board = old_board;
+    return true;
+  } else {
+    self.board = old_board;
+    return false;
+  }
+}
+
+Game.prototype.cantMoveRight = function() {
+  var self = this;
+  var old_board = self.board;
+  self.moveRight();
+  if (self.board.toString() === old_board.toString()){
+    self.board = old_board;
+    return true;
+  } else {
+    self.board = old_board;
+    return false;
+  }
+}
+
+Game.prototype.cantMoveUp = function() {
+  var self = this;
+  var old_board = self.board;
+  self.moveUp();
+  if (self.board.toString() === old_board.toString()){
+    self.board = old_board;
+    return true;
+  } else {
+    self.board = old_board;
+    return false;
+  }
+}
+
+Game.prototype.cantMoveDown = function() {
+  var self = this;
+  var old_board = self.board;
+  self.moveDown();
+  if (self.board.toString() === old_board.toString()){
+    self.board = old_board;
+    return true;
+  } else {
+    self.board = old_board;
+    return false;
+  }
+};
+
+
 
 
 
