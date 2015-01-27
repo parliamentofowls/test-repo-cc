@@ -1,15 +1,14 @@
-var Game = function(startBoard) {
+var Game = function() {
   this.completed = false;
-  this.startBoard = startBoard;
-  this.board = this.makeBoard(startBoard);
+  this.startBoard = _.shuffle(["0", "0","0","0","0","0", "0", "0", "0","0","0","2","0","2","0", "0"]).join("");
+  this.board = this.makeBoard(this.startBoard);
   this.cells = $('.square').toArray();
   this.respawnIsOn = true;
 };
 
+Game.prototype.loop = function() {
 
-// Game.prototype.loop = function() {
-
-// };
+};
 
 Game.prototype.makeBoard = function(stringBoard){
   if (stringBoard.length !== 16){

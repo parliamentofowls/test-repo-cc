@@ -1,6 +1,9 @@
 $(document).ready(function() {
-    newGame = new Game("0224240200448008");
+
+  $('.new_game_button').on('click', function(){
+    newGame = new Game();
     newGame.updateBoard();
+  })
 
   Mousetrap.bind('left', function(){ newGame.moveLeft(); newGame.spawn(); newGame.updateBoard();});
   Mousetrap.bind('right', function(){newGame.moveRight(); newGame.spawn(); newGame.updateBoard();});
