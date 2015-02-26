@@ -2,7 +2,7 @@
 
 A clone of the game 2048!
 
-Contributors:
+*Contributors*
 
-Ashley Baldwin-Hunter
-Ricky Thomas
+* Ashley Baldwin-Hunter
+* Ricky Thomas
