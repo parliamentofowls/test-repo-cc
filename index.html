@@ -6,21 +6,51 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/mousetrap.js"></script>
-  <script src="/js/underscore.js"></script>
-  <script src="/js/game.js"></script>
-  <script src="/js/application.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/mousetrap.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/application.js"></script>
 
   <title>256!</title>
 </head>
 <body>
-
+  <div id="container">
+    <h1>
+    <button class="new_game_button">Start New Game!</button>
+    </h1>
+    <div id="game_wrapper">
+      <div class ="row" id="one">
+        <div class="square" id="square_1"></div>
+        <div class="square" id="square_2"></div>
+        <div class="square" id="square_3"></div>
+        <div class="square" id="square_4"></div>
+      </div>
+      <div class ="row">
+        <div class="square" id="square_5"></div>
+        <div class="square" id="square_6"></div>
+        <div class="square" id="square_7"></div>
+        <div class="square" id="square_8"></div>
+      </div>
+      <div class ="row">
+        <div class="square" id="square_9"></div>
+        <div class="square" id="square_10"></div>
+        <div class="square" id="square_11"></div>
+        <div class="square" id="square_12"></div>
+      </div>
+      <div class ="row">
+        <div class="square" id="square_13"></div>
+        <div class="square" id="square_14"></div>
+        <div class="square" id="square_15"></div>
+        <div class="square" id="square_16"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
