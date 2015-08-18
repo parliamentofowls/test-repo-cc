@@ -4,13 +4,11 @@ $(document).ready(function() {
     newGame = new Game();
     newGame.updateBoard();
   })
-
   // var ways = ['left', 'right', 'up', 'down'];
 
   // for (var i=0; i< ways.length; i++) {
   //   Mousetrap.bind(ways[i], function(){ newGame.loop(ways[i]); })
   // };
-
 //     Mousetrap.bind('left', function(){ newGame.loop('left')});
 //     Mousetrap.bind('right', function(){newGame.loop('right')});
 //     Mousetrap.bind('up', function(){newGame.loop('up')});
