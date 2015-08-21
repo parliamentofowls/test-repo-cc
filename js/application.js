@@ -1,9 +1,9 @@
 $(document).ready(function() {
-
   $('.new_game_button').on('click', function(){
     newGame = new Game();
     newGame.updateBoard();
   })
+
   // var ways = ['left', 'right', 'up', 'down'];
 
   // for (var i=0; i< ways.length; i++) {
