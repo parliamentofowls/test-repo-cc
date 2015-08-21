@@ -5,7 +5,6 @@ $(document).ready(function() {
   })
 
   // var ways = ['left', 'right', 'up', 'down'];
-
   // for (var i=0; i< ways.length; i++) {
   //   Mousetrap.bind(ways[i], function(){ newGame.loop(ways[i]); })
   // };
