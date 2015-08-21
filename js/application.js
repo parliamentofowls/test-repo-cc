@@ -13,7 +13,6 @@ $(document).ready(function() {
 //     Mousetrap.bind('up', function(){newGame.loop('up')});
 //     Mousetrap.bind('down', function(){newGame.loop('down')});
 // });
-
   Mousetrap.bind('left', function(){ newGame.moveLeft(); newGame.spawn(); newGame.updateBoard();});
   Mousetrap.bind('right', function(){newGame.moveRight(); newGame.spawn(); newGame.updateBoard();});
   Mousetrap.bind('up', function(){newGame.moveUp(); newGame.spawn(); newGame.updateBoard();});
