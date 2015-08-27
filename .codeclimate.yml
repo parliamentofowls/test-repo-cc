@@ -1,9 +1,9 @@
 ---
 engines:
-  eslint:
+  rubocop:
     enabled: true
-  csslint:
-    enabled: true
+  # csslint:
+  #   enabled: true
 ratings:
   paths:
   - "**.js"
