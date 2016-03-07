@@ -6,4 +6,3 @@ Contributors:
 
 * Ashley Baldwin-Hunter
 * Ricky Thomas
-
