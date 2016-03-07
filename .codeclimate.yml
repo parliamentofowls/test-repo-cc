@@ -27,4 +27,3 @@ ratings:
 exclude_paths:
 - js/underscore.js
 - js/mousetrap.js
-
