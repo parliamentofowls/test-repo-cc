@@ -5,6 +5,9 @@ engines:
   duplication:
     enabled: true
     config:
+      languages:
+      - ruby
+      - javascript
   eslint:
     enabled: true
   fixme:
