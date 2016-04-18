@@ -17,7 +17,6 @@ ratings:
   - "**.css"
   - "**.js"
   - "**.jsx"
-  - "**.py"
   - "**.rb"
 exclude_paths:
 - js/underscore.js
