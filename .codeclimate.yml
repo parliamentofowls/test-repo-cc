@@ -1,7 +1,7 @@
 ---
 engines:
   csslint:
-    enabled: true
+    enabled: false
   duplication:
     enabled: false
     config:
@@ -12,6 +12,8 @@ engines:
     enabled: false
   fixme:
     enabled: false
+  rubocop:
+    enabled: true
 ratings:
   paths:
   - "**.css"
