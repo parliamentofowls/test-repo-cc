@@ -11,7 +11,7 @@ engines:
   eslint:
     enabled: false
   fixme:
-    enabled: false
+    enabled: true
   rubocop:
     enabled: true
 ratings:
